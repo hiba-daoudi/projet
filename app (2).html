@@ -162,7 +162,7 @@
 
           }
 
-          document.getElementById("botona").innerHTML="<br><br><br><div id='botona1'><input type=\"submit\" name=\"somme\" id=\"botona\" value=\"A+B\" onclick=\"somme();\"> <input type=\"submit\" name=\"soustraction\" id=\"botona\" value=\"A-B\" onclick=\"sous();\"> <input type=\"submit\" name=\"multiplication\" id=\"botona\" value=\"A*B\" onclick=\"multipab();\">  <input type=\"submit\" name=\"multiplication2\" id=\"botona\" value=\"B*A\" onclick=\"multipba();\"><br> <label> Multiplication et division element par element </label> <br><input type=\"submit\" name=\"multip\" id=\"botona\" value=\"multiplication\" onclick=\"multip();\"> <input type=\"submit\" name=\"division\" id=\"botona\" value=\"division\" onclick=\"div();\"><br><label>ketbo chi haja </label><br><input type=\"submit\" name=\"maximum\" id=\"botona\" value=\"maximum\" onclick=\"maximum();\"> <input type=\"submit\" name=\"minimum\" id=\"botona\" value=\"minimum\" onclick=\"minimum();\"> <input type=\"submit\" name=\"power\" id=\"botona\" value=\"power\" onclick=\"power();\"></div><div id='lali'><div id=lwl><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol1();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo1();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma1();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma1();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy1();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod1();\"></div><div id=tani><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol2\" onclick=\"absol();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo2();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma2();\"><input type=\"submit\" name=\"maxma2\" id=\"botona\" value=\"maxma\" onclick=\"maxma();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy2();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum2();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod2();\"></div> </div>";
+          document.getElementById("botona").innerHTML="<br><br><br><div id='botona1'><input type=\"submit\" name=\"somme\" id=\"botona\" value=\"A+B\" onclick=\"somme();\"> <input type=\"submit\" name=\"soustraction\" id=\"botona\" value=\"A-B\" onclick=\"sous();\"> <input type=\"submit\" name=\"multiplication\" id=\"botona\" value=\"A*B\" onclick=\"multipab();\">  <input type=\"submit\" name=\"multiplication2\" id=\"botona\" value=\"B*A\" onclick=\"multipba();\"><br> <label> Multiplication et division element par element </label> <br><input type=\"submit\" name=\"multip\" id=\"botona\" value=\"multiplication\" onclick=\"multip();\"> <input type=\"submit\" name=\"division\" id=\"botona\" value=\"division\" onclick=\"div();\"><br><label>ketbo chi haja </label><br><input type=\"submit\" name=\"maximum\" id=\"botona\" value=\"maximum\" onclick=\"maximum();\"> <input type=\"submit\" name=\"minimum\" id=\"botona\" value=\"minimum\" onclick=\"minimum();\"> <input type=\"submit\" name=\"power\" id=\"botona\" value=\"power\" onclick=\"power();\"></div><div id='lali'><div id=lwl><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol1();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo1();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma1();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma1();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy1();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum1();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod1();\"></div><div id=tani><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol2();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo2();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma2();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma2();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy2();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum2();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod2();\"></div> </div>";
    
         }
     var B=document.getElementById("myButton");
@@ -449,9 +449,9 @@ else{
     function sum1(){
         creer()
         a=tens1.sum();
-        b=tens2.sum();
-        document.getElementById("resultat").innerHTML="<br>La somme des valeurs de la premiere matrice est ";
-    }
+        document.getElementById("resultat").innerHTML="<br>La somme des valeurs de la premiere matrice est "+a.dataSync();
+    };
+    
     function prod1(){
         creer()
         a=tens1.prod();
@@ -460,7 +460,7 @@ else{
     function absol2(){  
     creer()
     tens4=tens2.abs();
-    document.getElementById("resultat").innerHTML+="<br>La matrice composee par les valeurs absolues de la deuxiemme matrice est <br>";
+    document.getElementById("resultat").innerHTML="<br>La matrice composee par les valeurs absolues de la deuxiemme matrice est <br>";
     var l=0;
     for( var i= 1; i <= tens4.shape[0] ; i++){
     for( var j = 1; j <= tens4.shape[1] ; j++){
@@ -474,7 +474,7 @@ else{
     function transpo2(){
     creer()
     tens4=tens2.transpose();
-    document.getElementById("resultat").innerHTML+="<br>La matrice transpose de la deuxiemme matrice est <br>";
+    document.getElementById("resultat").innerHTML="<br>La matrice transpose de la deuxiemme matrice est <br>";
     var l=0;
     for( var i= 1; i <= tens4.shape[0] ; i++){
     for( var j = 1; j <= tens4.shape[1] ; j++){
