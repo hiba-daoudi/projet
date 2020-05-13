@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
     <style type="text/css"> 
         input[type="number"]{
         width: 4%;
@@ -33,10 +33,13 @@
         #mat1 {
             font-size: 20px;
             text-align: center;
+            margin-left: auto;
         }
+
         #mat2{
             font-size: 20px;
            text-align: center;
+           margin-right: auto;
         }
         #env{
             font-size: 30px;
@@ -60,7 +63,6 @@
             text-align: center;
         }
         
-
         </style>
 </head>
 <body>
@@ -116,13 +118,13 @@
                 document.getElementById("mat1").style.marginRight = "3%";
             }
      //first matrix
-        document.getElementById("mat1").innerHTML+="<br>";
+        document.getElementById("mat1").innerHTML="";
             
           for(i = 1; i <= ligne1 ; i++){
               for(j = 1; j <= colonne1 ; j++){
                ele=document.createElement('input');
-               ele.id="mat1";
-               ele.id="mat1("+i+","+j+")";
+               ele.id="m1";
+               ele.id="m1("+i+","+j+")";
                ele.type="text";
                ele.size="5";
                
@@ -136,7 +138,7 @@
     
     
         //second matrix
-       document.getElementById("mat2").innerHTML+="<br>";
+       document.getElementById("mat2").innerHTML="";
     
             
           for(i = 1; i <= ligne2 ; i++)
@@ -145,7 +147,7 @@
               {
                ele=document.createElement('input');
                
-               ele.id="mat2("+i+","+j+")";
+               ele.id="m2("+i+","+j+")";
                ele.type="text";
                ele.size="5";
                
