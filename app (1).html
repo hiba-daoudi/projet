@@ -4,32 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
-        <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style type="text/css"> 
+        input[type="number"]{
+        width: 4%;
+        }
+        #titre {
+            color: red;
+            font-size: 25px;
+            text-align: center;
+            font-weight:bold ;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #m{
+            column-count: 2;
+        }
+        #m1 {
+            font-size: 20px;
+            text-align: center;
+        }
+        #m2{
+            font-size: 20px;
+           text-align: center;
+        }
+        #mat{
+            column-count: 2;
+        }
+        #mat1 {
+            font-size: 20px;
+            text-align: center;
+        }
+        #mat2{
+            font-size: 20px;
+           text-align: center;
+        }
+        #env{
+            font-size: 30px;
+            text-align: center;
+        }
+        
+        #botona1{
+            
+            text-align: center!important
+        }
+        #lali{
+            column-count: 2;
+        }
+        #lwl{
+            text-align: left;
+        }
+        #tani{
+            text-align:right;
+        }
+        .creatmat{
+            text-align: center;
+        }
+        
+
+        </style>
 </head>
 <body>
-    <div>
-        <label>Taille de la premiere matrice</label><br>
+    <p id='titre'>Traitement Matriciel </p>
+    <div id='m'>
+    <div id='m1'>
+        <label >Taille de la premiere matrice</label><br>
         <label>Nombre  de  lignes </label>
-        <input type="number" name="ligne" id="ligne1"> <br>
-        <label>Nombre de colonnes</label>
+        <input  type="number" name="ligne" id="ligne1"> <br>
+        <label >Nombre de colonnes</label>
         <input type="number" name="colonne" id="colonne1"><br>
     </div>
-    <div>
+    <div id='m2'>  
         <label>Taille de la deuxiemme matrice</label><br>
         <label>Nombre  de  lignes </label>
         <input type="number" name="ligne" id="ligne2"> <br>
         <label>Nombre de colonnes</label>
         <input type="number" name="colonne" id="colonne2"><br>
     </div>
+    </div>
+    <div id='env'>
         <input type="submit" name="inserer" id="myButton" value="inserer"><br>
-        <br /><br />
-	    <div id="mat">
-           <div id="mat1"></div>
-		   <div id="mat2"></div>
-        </div>
-        <div id="botona">
-        </div>
+    </div>
+    <br /><br />
+	<div id="mat">
+           <div id="mat1"> Matrice 1</div>
+		   <div id="mat2">Matrice 2</div>
+    </div>
+        <div id="botona"></div>
         <div id="resultat">
         </div>
 <script >
@@ -56,13 +116,13 @@
                 document.getElementById("mat1").style.marginRight = "3%";
             }
      //first matrix
-        document.getElementById("mat1").innerHTML="";
+        document.getElementById("mat1").innerHTML+="<br>";
             
           for(i = 1; i <= ligne1 ; i++){
               for(j = 1; j <= colonne1 ; j++){
                ele=document.createElement('input');
-               ele.id="m1";
-               ele.id="m1("+i+","+j+")";
+               ele.id="mat1";
+               ele.id="mat1("+i+","+j+")";
                ele.type="text";
                ele.size="5";
                
@@ -76,7 +136,7 @@
     
     
         //second matrix
-       document.getElementById("mat2").innerHTML="";
+       document.getElementById("mat2").innerHTML+="<br>";
     
             
           for(i = 1; i <= ligne2 ; i++)
@@ -85,7 +145,7 @@
               {
                ele=document.createElement('input');
                
-               ele.id="m2("+i+","+j+")";
+               ele.id="mat2("+i+","+j+")";
                ele.type="text";
                ele.size="5";
                
@@ -100,7 +160,7 @@
 
           }
 
-          document.getElementById("botona").innerHTML="<br><br><br><input type=\"submit\" name=\"somme\" id=\"botona\" value=\"A+B\" onclick=\"somme();\"> <input type=\"submit\" name=\"soustraction\" id=\"botona\" value=\"A-B\" onclick=\"sous();\"> <input type=\"submit\" name=\"multiplication\" id=\"botona\" value=\"A*B\" onclick=\"multipab();\">  <input type=\"submit\" name=\"multiplication2\" id=\"botona\" value=\"B*A\" onclick=\"multipba();\"><br> <label> Multiplication et division element par element </label> <br><input type=\"submit\" name=\"multip\" id=\"botona\" value=\"multiplication\" onclick=\"multip();\"> <input type=\"submit\" name=\"division\" id=\"botona\" value=\"division\" onclick=\"div();\"><br><label>ketbo chi haja </label><br><input type=\"submit\" name=\"maximum\" id=\"botona\" value=\"maximum\" onclick=\"maximum();\"> <input type=\"submit\" name=\"minimum\" id=\"botona\" value=\"minimum\" onclick=\"minimum();\"> <input type=\"submit\" name=\"power\" id=\"botona\" value=\"power\" onclick=\"power();\"><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod();\">  ";
+          document.getElementById("botona").innerHTML="<br><br><br><div id='botona1'><input type=\"submit\" name=\"somme\" id=\"botona\" value=\"A+B\" onclick=\"somme();\"> <input type=\"submit\" name=\"soustraction\" id=\"botona\" value=\"A-B\" onclick=\"sous();\"> <input type=\"submit\" name=\"multiplication\" id=\"botona\" value=\"A*B\" onclick=\"multipab();\">  <input type=\"submit\" name=\"multiplication2\" id=\"botona\" value=\"B*A\" onclick=\"multipba();\"><br> <label> Multiplication et division element par element </label> <br><input type=\"submit\" name=\"multip\" id=\"botona\" value=\"multiplication\" onclick=\"multip();\"> <input type=\"submit\" name=\"division\" id=\"botona\" value=\"division\" onclick=\"div();\"><br><label>ketbo chi haja </label><br><input type=\"submit\" name=\"maximum\" id=\"botona\" value=\"maximum\" onclick=\"maximum();\"> <input type=\"submit\" name=\"minimum\" id=\"botona\" value=\"minimum\" onclick=\"minimum();\"> <input type=\"submit\" name=\"power\" id=\"botona\" value=\"power\" onclick=\"power();\"></div><div id='lali'><div id=lwl><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod();\"></div><div id=tani><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod();\"></div> </div> ";
    
         }
     var B=document.getElementById("myButton");
