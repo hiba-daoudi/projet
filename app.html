@@ -18,20 +18,20 @@
 <body>
     
     <p id='titre'>Traitement Matriciel </p>
-    <div id='m'>
+   <div id='m'>
     <div id='m1'>
-        <label >Taille de la premiere matrice</label><br>
-        <label>Nombre  de  lignes </label>
-        <input  type="number" name="ligne" id="ligne1"> <br>
-        <label >Nombre de colonnes</label>
-        <input type="number" name="colonne" id="colonne1"><br>
+        <label style="font-size: 24px;margin-left: -3%; font-weight: bold;">Taille de la premiere matrice</label><br>
+        <label  style="margin-right:3.5% ;">Nombre  de  lignes </label>
+        <input  type="number" name="ligne" id="ligne1" style="margin-left: 4.44%;"> <br>
+        <label style="margin-right:2% ;">Nombre de colonnes</label>
+        <input type="number" name="colonne" id="colonne1"style="margin-left: 2%;"><br>
     </div>
     <div id='m2'>  
-        <label>Taille de la deuxiemme matrice</label><br>
-        <label>Nombre  de  lignes </label>
-        <input type="number" name="ligne" id="ligne2"> <br>
-        <label>Nombre de colonnes</label>
-        <input type="number" name="colonne" id="colonne2"><br>
+        <label style="font-size: 24px;margin-left: -3%; font-weight: bold;">Taille de la deuxiemme matrice</label><br>
+        <label style="margin-right:3% ;">Nombre  de  lignes </label>
+        <input type="number" name="ligne" id="ligne2"style="margin-left: 4.69%;"> <br>
+        <label style="margin-right:2% ;">Nombre de colonnes</label>
+        <input type="number" name="colonne" id="colonne2" style="margin-left: 2%;"><br>
     </div>
     </div>
     <div id='env'>
@@ -40,10 +40,13 @@
     <br /><br />
 	<div id="mat">
            <div id="mat1"></div>
-           <div id="botona"></div>
            <div id="mat2"></div>  
     </div>
-    <div id="botona111"></div>
+    <div>
+    <div id="botona"></div>
+</div>
+    <br>
+    <br>
         
 
         <div id="resultat">
@@ -65,14 +68,16 @@
             if(ligne1 > 9 && colonne1 > 9)
             {
                 document.getElementById("mat").style.display="block";
-                document.getElementById("mat1").style.marginBottom = "3%";
+                document.getElementById("mat1").style.marginBottom = "5%";
             }else
             {
                 document.getElementById("mat").style.display="flex";
-                document.getElementById("mat1").style.marginRight = "3%";
+                document.getElementById("mat1").style.marginRight = "5%";
+                document.getElementById("mat").style.columnCount="2";
+
             }
      //first matrix
-        document.getElementById("mat1").innerHTML="<p id='mat1'> Matrice 1 <br><p>";
+        document.getElementById("mat1").innerHTML="Matrice 1 <br>";
             
           for(i = 1; i <= ligne1 ; i++){
               for(j = 1; j <= colonne1 ; j++){
@@ -116,13 +121,16 @@
 
           }
 
-          document.getElementById("botona").innerHTML="<div id=\"botona1\"><table><tr><th><input type=\"submit\" name=\"somme\" id=\"botona1\" value=\"A+B\" onclick=\"somme();\"></th><th><input type=\"submit\" name=\"soustraction\" id=\"botona1\" value=\"A-B\" onclick=\"sous();\"></th> </th><th><input type=\"submit\" name=\"multiplication\"id=\"botona1\" value=\"A*B\" onclick=\"multipab();\"></th><th><input type=\"submit\" name=\"multiplication2\" id=\"botona1\" value=\"B*A\" onclick=\"multipba();\"></th></tr><\div><tr><br /><th><input type=\"submit\" name=\"multip\" id=\"botona2\" value=\"multiplication\" onclick=\"multip();\"></th> <th><input type=\"submit\" name=\"division\" id=\"botona2\" value=\"division\" onclick=\"div();\"><br /></th></tr><tr><th><input type=\"submit\" name=\"maximum\" id=\"botona3\" value=\"maximum\" onclick=\"maximum();\"></th><th><input type=\"submit\" name=\"minimum\" id=\"botona3\" value=\"minimum\" onclick=\"minimum();\"></th> <th><input type=\"submit\" name=\"power\"id=\"botona3\" value=\"power\" onclick=\"power();\"></th></tr></table></div><div id='lali'><div id=lwl> </div>";
-          document.getElementById("botona111").innerHTML="<br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol1();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo1();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma1();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma1();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy1();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum1();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod1();\"></div><div id=tani><br><label>Traitement Matriciel : </label><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol2();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo2();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma2();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma2();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy2();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum2();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod2();\"></div> </div>";
-          
-   
+        
+          document.getElementById("botona").innerHTML="<br><br><label style=\"font-size: 20px; font-style: bolder;\">Operations sur les matrices: </label><br><input type=\"submit\" name=\"somme\" id=\"botona\" value=\"A+B\" onclick=\"somme();\"> <input type=\"submit\" name=\"soustraction\" id=\"botona\" value=\"A-B\" onclick=\"sous();\"> <input type=\"submit\" name=\"multiplication\" id=\"botona\" value=\"A*B\" onclick=\"multipab();\">  <input type=\"submit\" name=\"multiplication2\" id=\"botona\" value=\"B*A\" onclick=\"multipba();\"><br><input type=\"submit\" name=\"multip\" id=\"botona\" value=\"multiplication\" onclick=\"multip();\"> <input type=\"submit\" name=\"division\" id=\"botona\" value=\"division\" onclick=\"div();\"><br><input type=\"submit\" name=\"maximum\" id=\"botona\" value=\"maximum\" onclick=\"maximum();\"> <input type=\"submit\" name=\"minimum\" id=\"botona\" value=\"minimum\" onclick=\"minimum();\"> <input type=\"submit\" name=\"power\" id=\"botona\" value=\"power\" onclick=\"power();\"><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod();\">  ";
+        
         }
-    var B=document.getElementById("myButton");
-    B.addEventListener('click', creatmat, false);
+   
+        
+        var B=document.getElementById("myButton");
+        B.addEventListener('click', creatmat, false);
+
+         
 
     function creer(){
     var i,j,k1,k2,v1,v2;
@@ -358,9 +366,10 @@ else{
     document.getElementById("resultat").innerHTML+="<br>";
 }
     }}
-    function absol1(){
+    function absol(){
         creer()
         tens3=tens1.abs();
+        tens4=tens2.abs();
         document.getElementById("resultat").innerHTML="<br>La matrice composee par les valeurs absolues de la premiere matrice est <br>";
         
     var l=0;
@@ -371,12 +380,21 @@ else{
     }
     document.getElementById("resultat").innerHTML+="<br>";
 }
-
+document.getElementById("resultat").innerHTML+="<br>La matrice composee par les valeurs absolues de la deuxiemme matrice est <br>";
+var l=0;
+    for( var i= 1; i <= tens4.shape[0] ; i++){
+    for( var j = 1; j <= tens4.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens4.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
 
     }
-    function transpo1(){
+    function transpo(){
         creer()
         tens3=tens1.transpose();
+        tens4=tens2.transpose();
         document.getElementById("resultat").innerHTML="<br>La matrice transpose de la premiere matrice est <br> ";
         var l=0;
     for( var i= 1; i <= tens3.shape[0] ; i++){
@@ -386,84 +404,45 @@ else{
     }
     document.getElementById("resultat").innerHTML+="<br>";
 }
+document.getElementById("resultat").innerHTML+="<br>La matrice transpose de la deuxiemme matrice est <br>";
+var l=0;
+    for( var i= 1; i <= tens4.shape[0] ; i++){
+    for( var j = 1; j <= tens4.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens4.dataSync()[l]+"&nbsp";
+        l=l+1;
     }
-    function minma1(){
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }
+    function minma(){
         creer()
         a=tens1.min();
-        document.getElementById("resultat").innerHTML="<br>Le minimum de la premiere matrice est "+ a.dataSync();
+        b=tens2.min();
+        document.getElementById("resultat").innerHTML="<br>Le minimum de la premiere matrice est "+ a.dataSync() +"<br>Le minimum de la deuxiemme matrice est "+ b.dataSync();
     }
-    function maxma1(){
+    function maxma(){
         creer()
         a=tens1.max();
-        document.getElementById("resultat").innerHTML="<br>Le maximum de la premiere matrice est "+ a.dataSync() ;
+        b=tens2.max();
+        document.getElementById("resultat").innerHTML="<br>Le maximum de la premiere matrice est "+ a.dataSync() +"<br>Le maximum de la deuxiemme matrice est "+ b.dataSync();
     }
-    function moy1(){
+    function moy(){
         creer()
         a=tens1.mean();
-        document.getElementById("resultat").innerHTML="<br>La valeur moyenne de la premiere matrice est "+ a.dataSync() ;
+        b=tens2.mean();
+        document.getElementById("resultat").innerHTML="<br>La valeur moyenne de la premiere matrice est "+ a.dataSync() +"<br>La valeur moyenne de la deuxiemme matrice est "+ b.dataSync();
     }
-    function sum1(){
+    function sum(){
         creer()
         a=tens1.sum();
-        document.getElementById("resultat").innerHTML="<br>La somme des valeurs de la premiere matrice est "+a.dataSync();
-    };
-    
-    function prod1(){
+        b=tens2.sum();
+        document.getElementById("resultat").innerHTML="<br>La somme des valeurs de la premiere matrice est "+ a.dataSync() +"<br>La somme valeurs de la deuxiemme matrice est "+ b.dataSync();
+    }
+    function prod(){
         creer()
         a=tens1.prod();
-        document.getElementById("resultat").innerHTML="<br>Le produit des valeurs de la premiere matrice est "+ a.dataSync();
-    }
-    function absol2(){  
-    creer()
-    tens4=tens2.abs();
-    document.getElementById("resultat").innerHTML="<br>La matrice composee par les valeurs absolues de la deuxiemme matrice est <br>";
-    var l=0;
-    for( var i= 1; i <= tens4.shape[0] ; i++){
-    for( var j = 1; j <= tens4.shape[1] ; j++){
-        document.getElementById("resultat").innerHTML+=tens4.dataSync()[l]+"&nbsp";
-        l=l+1;
-    }
-    document.getElementById("resultat").innerHTML+="<br>";
-}
-
-    }
-    function transpo2(){
-    creer()
-    tens4=tens2.transpose();
-    document.getElementById("resultat").innerHTML="<br>La matrice transpose de la deuxiemme matrice est <br>";
-    var l=0;
-    for( var i= 1; i <= tens4.shape[0] ; i++){
-    for( var j = 1; j <= tens4.shape[1] ; j++){
-        document.getElementById("resultat").innerHTML+=tens4.dataSync()[l]+"&nbsp";
-        l=l+1;
-    }
-    document.getElementById("resultat").innerHTML+="<br>";
-}
-    }
-    function minma2(){
-        creer()
-        b=tens2.min();
-        document.getElementById("resultat").innerHTML="<br>Le minimum de la deuxiemme matrice est "+ b.dataSync();
-    }
-    function maxma2(){
-        creer()
-        b=tens2.max();
-        document.getElementById("resultat").innerHTML="<br>Le maximum de la deuxiemme matrice est "+ b.dataSync();
-    }
-    function moy2(){
-        creer()
-        b=tens2.mean();
-        document.getElementById("resultat").innerHTML="<br>La valeur moyenne de la deuxiemme matrice est "+ b.dataSync();
-    }
-    function sum2(){
-        creer()
-        b=tens2.sum();
-        document.getElementById("resultat").innerHTML="<br>La somme valeurs de la deuxiemme matrice est "+ b.dataSync();
-    }
-    function prod2(){
-        creer()
         b=tens2.prod();
-        document.getElementById("resultat").innerHTML="<br>Le produit des valeurs de la deuxiemme matrice est "+ b.dataSync();
+        document.getElementById("resultat").innerHTML="<br>Le produit des valeurs de la premiere matrice est "+ a.dataSync() +"<br>Le produit des valeurs de la deuxiemme matrice est "+ b.dataSync();
     }
 </script>
 </body>
