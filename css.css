@@ -71,6 +71,7 @@ input[type="number"]{
     #resultat{
         border-color: black;
         border-style: solid;
+        width: 100%;
     }
     #botona{
         margin-left: 10px;
