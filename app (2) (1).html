@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <style type="text/css"> 
+        input[type="number"]{
+        width: 4%;
+        }
+        #titre {
+            color: red;
+            font-size: 30px;
+            text-align: center;
+            font-weight:bold ;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #m{
+            column-count: 2;
+        }
+        #m1 {
+            font-size: 20px;
+            margin-left: 25%;
+        }
+        #m2{
+            font-size: 20px;
+           
+           margin-left: 35%;
+        }
+    
+        #mat1 {
+            font-size: 20px;
+            text-align: center;
+            margin-left: auto;
+        }
+
+        #mat2{
+            font-size: 20px;
+           text-align: center;
+           margin-right: auto;
+        }
+        #env{
+            font-size: 30px;
+            text-align: center;
+            margin-top: 3%;
+            
+        }
+        
+        #botona1{
+            
+            text-align: center!important
+        }
+        #lali{
+            column-count: 2;
+        }
+        #lwl{
+            text-align: left;
+        }
+        #tani{
+            text-align:right;
+        }
+        .creatmat{
+            text-align: center;
+        }
+        input[type=number]{
+            width:10%;
+        }
+        body{
+        min-height: 100vh;
+        background-image: url("back7.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Quicksand', sans-serif;
+    }
+    input[type="number"]{
+    width: 10%;
+    background-color: rgba(163, 150, 150, 0.3);
+    border-color: black;
+    }
+    #label1{
+    font-size: 20px;
+    font-style: bold !important;
+   }
+   #titre {
+        color: black;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 15px;
+        font-weight:bolder ;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #myButton{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 10%;
+        border-color: black; 
+        height: 10%; 
+        font-size: 20px;
+        
+      border-radius: 3px;
+      box-shadow: 6px 6px 20px 4px rgba(0, 0, 0, 0.3);
+    }
+    #myButton:hover{
+      transform: scale(1.01);
+      box-shadow: 6px 6px 25px 4px rgba(0, 0, 0, 0.18);
+  }
+  #m{
+        column-count: 2;
+    }
+    #m1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    #m2{
+        font-size: 20px;
+       text-align: center;
+
+    }
+    #mat1 {
+        font-size: 20px;
+        text-align: center;
+        margin-left: auto;
+    }
+
+    #mat2{
+        font-size: 20px;
+       text-align: center;
+       margin-right: auto;
+    }
+    button#botona{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 10%;
+        border-color: black; 
+        height: 15%; 
+        border-radius: 3px;
+        box-shadow: 6px 6px 20px 4px rgba(0, 0, 0, 0.3);
+    }
+    #resultat{
+        border-color: black;
+        border-style: solid;
+    }
+    #botona{
+        margin-left: 10px;
+    }
+    #env{
+        
+        text-align: center;
+    }
+    
+  
+    .creatmat{
+        text-align: center;
+    }
+        </style>
+</head>
+<body>
+    <p id='titre'>Traitement Matriciel </p>
+    <div id='m'>
+    <div id='m1'>
+        <label style="font-size: 24px;margin-left: -5%; font-weight: bold;">Taille de la premiere matrice</label><br>
+        <label style="margin-right:4% ;">Nombre  de  lignes </label>
+        <input  type="number" name="ligne" id="ligne1" style="margin-left: 4.5%;"> <br>
+        <label  style="margin-right:2% ;">Nombre de colonnes</label>
+        <input type="number" name="colonne" id="colonne1" style="margin-left: 2%;"><br>
+    </div>
+    <div id='m2'>  
+        <label style="font-size: 24px; margin-left: -5%; font-weight: bold;" >Taille de la deuxiemme matrice</label><br>
+        <label  style="margin-right:4% ;">Nombre  de  lignes </label>
+        <input type="number" name="ligne" id="ligne2"style="margin-left: 5%;"> <br>
+        <label style="margin-right:2% ;">Nombre de colonnes</label>
+        <input type="number" name="colonne" id="colonne2" style="margin-left: 2%;"><br>
+    </div>
+    </div>
+    <div id='env'>
+        <input type="submit" name="inserer" id="myButton" value="inserer"><br>
+    </div>
+    <br /><br />
+	<div id="mat">
+           <div id="mat1"></div>
+		   <div id="mat2"></div>
+    </div>
+        <div id="botona"></div>
+        <p></p>
+        
+        <div id="resultat">
+        </div>
+    
+<script >
+  var i;
+    var j;
+    var ele; 
+    
+    
+    function creatmat()
+    {
+            var ligne1=document.getElementById("ligne1").value;
+            var colonne1=document.getElementById("colonne1").value;
+            var ligne2=document.getElementById("ligne2").value;
+            var colonne2=document.getElementById("colonne2").value;
+            
+
+            if(ligne1 > 9 && colonne1 > 9)
+            {
+                document.getElementById("mat").style.display="block";
+                document.getElementById("mat1").style.marginBottom = "5%";
+            }else
+            {
+                document.getElementById("mat").style.display="flex";
+                document.getElementById("mat1").style.marginRight = "5%";
+                document.getElementById("mat").style.columnCount="2";
+
+            }
+     //first matrix
+        document.getElementById("mat1").innerHTML=" Matrice 1 <br>";
+            
+          for(i = 1; i <= ligne1 ; i++){
+              for(j = 1; j <= colonne1 ; j++){
+               ele=document.createElement('input');
+               ele.id="m1";
+               ele.id="m1("+i+","+j+")";
+               ele.type="text";
+               ele.size="5";
+               
+               document.getElementById("mat1").appendChild(ele);
+           }
+             
+              var br=document.createElement('br');
+             document.getElementById("mat1").appendChild(br);
+       }
+        
+    
+    
+        //second matrix
+       document.getElementById("mat2").innerHTML="Matrice 2 <br>";
+    
+            
+          for(i = 1; i <= ligne2 ; i++)
+          {
+              for(j = 1; j <= colonne2 ; j++)
+              {
+               ele=document.createElement('input');
+               
+               ele.id="m2("+i+","+j+")";
+               ele.type="text";
+               ele.size="5";
+               
+               
+               document.getElementById("mat2").appendChild(ele);
+            }
+             
+              var br=document.createElement('br');
+             document.getElementById("mat2").appendChild(br);
+
+             document.getElementById("mat2").appendChild(br);
+
+          }
+
+          document.getElementById("botona").innerHTML="<br><br><label id='label1'>Operations sur les matrices: </label><br><input type=\"submit\" name=\"somme\" id=\"botona\" value=\"A+B\" onclick=\"somme();\"> <input type=\"submit\" name=\"soustraction\" id=\"botona\" value=\"A-B\" onclick=\"sous();\"> <input type=\"submit\" name=\"multiplication\" id=\"botona\" value=\"A*B\" onclick=\"multipab();\">  <input type=\"submit\" name=\"multiplication2\" id=\"botona\" value=\"B*A\" onclick=\"multipba();\"><br><input type=\"submit\" name=\"multip\" id=\"botona\" value=\"multiplication\" onclick=\"multip();\"> <input type=\"submit\" name=\"division\" id=\"botona\" value=\"division\" onclick=\"div();\"><br><input type=\"submit\" name=\"maximum\" id=\"botona\" value=\"maximum\" onclick=\"maximum();\"> <input type=\"submit\" name=\"minimum\" id=\"botona\" value=\"minimum\" onclick=\"minimum();\"> <input type=\"submit\" name=\"power\" id=\"botona\" value=\"power\" onclick=\"power();\"><br><input type=\"submit\" name=\"absol\" id=\"botona\" value=\"absol\" onclick=\"absol();\"><input type=\"submit\" name=\"transpo\" id=\"botona\" value=\"transpo\" onclick=\"transpo();\"><input type=\"submit\" name=\"minma\" id=\"botona\" value=\"minma\" onclick=\"minma();\"><input type=\"submit\" name=\"maxma\" id=\"botona\" value=\"maxma\" onclick=\"maxma();\"><input type=\"submit\" name=\"moy\" id=\"botona\" value=\"moy\" onclick=\"moy();\"><input type=\"submit\" name=\"sum\" id=\"botona\" value=\"sum\" onclick=\"sum();\"><input type=\"submit\" name=\"prod\" id=\"botona\" value=\"prod\" onclick=\"prod();\">  ";
+        
+        }
+    var B=document.getElementById("myButton");
+    B.addEventListener('click', creatmat, false);
+
+    function creer(){
+    var i,j,k1,k2,v1,v2;
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    ligne1=parseInt(ligne1);
+    colonne1=parseInt(colonne1);
+    ligne2=parseInt(ligne2);
+    colonne2=parseInt(colonne2);
+    const buffer1 = tf.buffer([ligne1, colonne1]);
+    const buffer2 = tf.buffer([ligne2, colonne2]);
+    for (let i = 1; i <= ligne1; i++) {
+        for (let j = 1; j<=colonne1; j++) {
+         k1=  "m1("+i+","+j+")";
+         v1=document.getElementById(k1).value;
+         v1=parseInt(v1);
+        buffer1.set(v1,i-1,j-1);
+          
+        } 
+    }
+    for (let i = 1; i <= ligne2; i++) {
+        for (let j = 1; j<=colonne2; j++) {
+        
+        k2=  "m2("+i+","+j+")";
+         v2=document.getElementById(k2).value;
+         v2=parseInt(v2);
+        buffer2.set(v2,i-1,j-1)    
+        } 
+    }
+    tens1= buffer1.toTensor()
+    tens1.print();
+    tens2=buffer2.toTensor()
+    tens2.print(); }
+    function somme(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible d\'effectuer leur somme. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+    tens3=tens1.add(tens2);
+    tens3.print();
+    document.getElementById("resultat").innerHTML="<br>La somme des deux matrices est <br>";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    
+    }}
+    function sous(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+        if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible d\'effectuer leur soustraction. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+        tens3=tens1.sub(tens2);
+        document.getElementById("resultat").innerHTML="<br>La soustraction des deux matrices est <br> ";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function multipab(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+if (colonne1!=ligne2){
+    alert('le nombre de colonne de la premiere matrice "'+colonne1+'" est different du nombre de ligne de la deuxiemme'+ligne2+ '"')
+}
+else{
+    tens3=tens1.matMul(tens2);
+    document.getElementById("resultat").innerHTML="<br>La multiplication des deux matrices est <br> ";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function multipba(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+if (colonne2!=ligne1){
+    alert('le nombre de colonne de la deuxiemme matrice "'+colonne2+'" est different du nombre de ligne de la premiere"'+ligne1+'"')
+}
+else{
+    tens3=tens2.matMul(tens1);
+    document.getElementById("resultat").innerHTML="<br>La multiplication des deux matrices B*A est <br> ";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function div(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible d\'effectuer leur division element par element. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+        tens3=tens1.div(tens2);
+        document.getElementById("resultat").innerHTML="<br>La division element par element des deux matrices est <br>";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function multip(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible d\'effectuer leur multiplication element par element. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+        tens3=tens1.mul(tens2);
+        document.getElementById("resultat").innerHTML="<br>La multiplication element par element des deux matrices est <br>";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function maximum(){
+        document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible de creer la matrice maximum. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+        tens3=tens1.maximum(tens2);
+        document.getElementById("resultat").innerHTML="<br>La matrice composee par les maximums des deux matrices est <br>";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function minimum(){
+        document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible de creer la matrice minimum. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+        tens3=tens1.minimum(tens2);
+        document.getElementById("resultat").innerHTML="<br>La matrice composee par les minimums des deux matrices est <br>";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function power(){
+    document.getElementById("resultat").innerHTML="";
+    creer()
+    var ligne1=document.getElementById('ligne1').value;
+    var colonne1=document.getElementById('colonne1').value;
+    var ligne2=document.getElementById('ligne2').value;
+    var colonne2=document.getElementById('colonne2').value;
+    if (ligne1!=ligne2 || colonne1!=colonne2) {
+        alert('Les matrices n\'ont pas la meme dimension, donc impossible de creer une matrice composee par les valeurs de la premiere matrice a la puissance des valeurs de la deuxiemme. \nVeuillez inserer des matrices de meme taille.')
+    }
+    else{
+        tens3=tens1.pow(tens2);
+        document.getElementById("resultat").innerHTML="<br>La matrice composee par les valeurs de la premiere matrice a la puissance des valeurs de la deuxiemme est <br> ";
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }}
+    function absol1(){
+        creer()
+        tens3=tens1.abs();
+        document.getElementById("resultat").innerHTML="<br>La matrice composee par les valeurs absolues de la premiere matrice est <br>";
+        
+    var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+
+
+    }
+    function transpo1(){
+        creer()
+        tens3=tens1.transpose();
+        document.getElementById("resultat").innerHTML="<br>La matrice transpose de la premiere matrice est <br> ";
+        var l=0;
+    for( var i= 1; i <= tens3.shape[0] ; i++){
+    for( var j = 1; j <= tens3.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens3.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }
+    function minma1(){
+        creer()
+        a=tens1.min();
+        document.getElementById("resultat").innerHTML="<br>Le minimum de la premiere matrice est "+ a.dataSync();
+    }
+    function maxma1(){
+        creer()
+        a=tens1.max();
+        document.getElementById("resultat").innerHTML="<br>Le maximum de la premiere matrice est "+ a.dataSync() ;
+    }
+    function moy1(){
+        creer()
+        a=tens1.mean();
+        document.getElementById("resultat").innerHTML="<br>La valeur moyenne de la premiere matrice est "+ a.dataSync() ;
+    }
+    function sum1(){
+        creer()
+        a=tens1.sum();
+        document.getElementById("resultat").innerHTML="<br>La somme des valeurs de la premiere matrice est "+a.dataSync();
+    };
+    
+    function prod1(){
+        creer()
+        a=tens1.prod();
+        document.getElementById("resultat").innerHTML="<br>Le produit des valeurs de la premiere matrice est "+ a.dataSync();
+    }
+    function absol2(){  
+    creer()
+    tens4=tens2.abs();
+    document.getElementById("resultat").innerHTML="<br>La matrice composee par les valeurs absolues de la deuxiemme matrice est <br>";
+    var l=0;
+    for( var i= 1; i <= tens4.shape[0] ; i++){
+    for( var j = 1; j <= tens4.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens4.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+
+    }
+    function transpo2(){
+    creer()
+    tens4=tens2.transpose();
+    document.getElementById("resultat").innerHTML="<br>La matrice transpose de la deuxiemme matrice est <br>";
+    var l=0;
+    for( var i= 1; i <= tens4.shape[0] ; i++){
+    for( var j = 1; j <= tens4.shape[1] ; j++){
+        document.getElementById("resultat").innerHTML+=tens4.dataSync()[l]+"&nbsp";
+        l=l+1;
+    }
+    document.getElementById("resultat").innerHTML+="<br>";
+}
+    }
+    function minma2(){
+        creer()
+        b=tens2.min();
+        document.getElementById("resultat").innerHTML="<br>Le minimum de la deuxiemme matrice est "+ b.dataSync();
+    }
+    function maxma2(){
+        creer()
+        b=tens2.max();
+        document.getElementById("resultat").innerHTML="<br>Le maximum de la deuxiemme matrice est "+ b.dataSync();
+    }
+    function moy2(){
+        creer()
+        b=tens2.mean();
+        document.getElementById("resultat").innerHTML="<br>La valeur moyenne de la deuxiemme matrice est "+ b.dataSync();
+    }
+    function sum2(){
+        creer()
+        b=tens2.sum();
+        document.getElementById("resultat").innerHTML="<br>La somme valeurs de la deuxiemme matrice est "+ b.dataSync();
+    }
+    function prod2(){
+        creer()
+        b=tens2.prod();
+        document.getElementById("resultat").innerHTML="<br>Le produit des valeurs de la deuxiemme matrice est "+ b.dataSync();
+    }
+</script>
+</body>
+</html>
