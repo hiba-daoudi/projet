@@ -7,6 +7,8 @@ let m, b;
 const learningRate = 0.5;
 const optimizer = tf.train.sgd(learningRate);
 
+let px = [];
+let py = [];
 function setup() {
   createCanvas(400, 400);
   m = tf.variable(tf.scalar(random(1)));
@@ -45,9 +47,9 @@ function draw() {
   stroke(255);
   strokeWeight(8);
   for (let i = 0; i < x_vals.length; i++) {
-    let px = map(x_vals[i], 0, 1, 0, width);
-    let py = map(y_vals[i], 0, 1, height, 0);
-    point(px, py);
+    px[i] = map(x_vals[i], 0, 1, 0, width);
+    py[i] = map(y_vals[i], 0, 1, height, 0);
+    point(px[i], py[i]);
   }
 
 

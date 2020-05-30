@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc.exemple</title>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1"> </script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+    <script src='reg.js' type="text/javascript"></script>
+</head>
+<body>
+    <input type="number" class="form-control" name="" id="x" >
+    <input type="number" class="form-control" name="" id="y" >
+    <button class="btn btn-danger col-3" onclick="ajouter()">ajouter</button>
+    <button class="btn btn-danger col-3" onclick="regression()">Training</button>
+    <br>
+    <input type="number" class="form-control" name="" id="pred" >
+    <button class="btn btn-success col-3" onclick="prediction()">Prédiction</button>
+    <button class="btn btn-warning" onclick="parametres()">Afficher</button>
+    <div class="col-12 h3" id="param"> </div>
+
+</body>
+</html>
