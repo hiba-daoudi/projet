@@ -27,10 +27,12 @@ function predict(x) {
 }
 
 function mousePressed() {
+  if(mouseY<=400 && mouseX<=400){
+
   let x = map(mouseX, 0, width, 0, 1);
   let y = map(mouseY, 0, height, 1, 0);
   x_vals.push(x);
-  y_vals.push(y);
+  y_vals.push(y);}
 }
 
 function draw() {

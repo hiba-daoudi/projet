@@ -16,6 +16,7 @@ function ajouter(){
 const model = tf.sequential();
 const trained = false;
 async function regression(){
+  
 // Modèle
 model.add(tf.layers.dense({units: 1, useBias:true, inputShape: [1]}));
 // Définition de la fonction loss et méthode d'optimasition
@@ -33,6 +34,7 @@ await model.fit(xs, ys, {
     }
   }
 });
+document.getElementById("nv").innerHTML='<input type="number" class="form-control" name="" id="pred" ><button class="btn btn-success col-3" onclick="prediction()">Prédire</button><button class="btn btn-warning" onclick="parametres()">Afficher la droite</button><div class="col-12 h3" id="param"> </div><br>'
 }
 function prediction(){
   let val = parseFloat(document.getElementById("pred").value);
@@ -46,7 +48,7 @@ function prediction(){
 function parametres(){
   a = model.getWeights()[0].dataSync();
   b = model.getWeights()[1].dataSync();
-  document.getElementById("param").innerHTML= "L'equation de la droite est : " + a + " x + "+ b;
+  document.getElementById("param").innerHTML= "<br> L'equation de la droite est : " + a + " x + "+ b;
 
 
 }

@@ -29,10 +29,12 @@ function drawLine(){
     line(x1,y1,x2,y2);
 } 
 function mousePressed(){
+    if(mouseY<=400 && mouseX<=400){
+
  var x=map(mouseX,0,width,0,1);
  var y=map(mouseY,0,height,1,0);
  var point = createVector(x,y)
-data.push(point);
+data.push(point);}
 }
 function draw(){
    background(50);
