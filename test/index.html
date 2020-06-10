@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>crop image</title> 
+           <link rel="stylesheet" href="css/imgareaselect.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery.imgareaselect.js"></script>
+    
+    </head>
+<body>
+    <form action="crop.php" method="post" enctype="multipart/form-data">
+        Upload Image: <input type="file" name="image" id="image" />
+        <input type="hidden" name="x1" value="" />
+        <input type="hidden" name="y1" value="" />
+        <input type="hidden" name="w" value="" />
+        <input type="hidden" name="h" value="" /><br><br>
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+     
+    <p><img id="previewimage" style="display:none;" width="400px" /></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/jquery.imgareaselect.js"></script>
+<script>
+    jQuery(function($) {
+ 
+        var p = $("#previewimage");
+        $("body").on("change", "#image", function(){
+ 
+            var imageReader = new FileReader();
+            imageReader.readAsDataURL(document.getElementById("image").files[0]);
+     
+            imageReader.onload = function (oFREvent) {
+                p.attr('src', oFREvent.target.result).fadeIn();
+            };
+        });
+ 
+        $('#previewimage').imgAreaSelect({
+            onSelectEnd: function (img, selection) {
+                [imgWidth,imgHeight]=getsize();
+                newH = (imgHeight*400)/imgWidth;
+                newW=400;
+                s=selection.x1;
+                r=selection.y1;
+                $('input[name="x1"]').val(parseInt((s*imgHeight)/newH));
+                $('input[name="y1"]').val(parseInt((r*imgWidth)/newW));
+                $('input[name="w"]').val(parseInt((selection.width*imgWidth)/newW));
+                $('input[name="h"]').val(parseInt((selection.height*imgHeight)/newH));    
+
+            }
+        });
+    });
+var getsize = function(){
+    tmp_img=new Image();
+ tmp_img.src=document.getElementById('previewimage').getAttribute('src');
+real_width = tmp_img.width
+real_height = tmp_img.height
+return [real_width,real_height];
+};
+
+</script>
+</body>
+</html>
