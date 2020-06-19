@@ -33,6 +33,8 @@ async function loadModelMnist() {
  async function pr(){
     const digit = document.getElementById("output_image");   
     img = tf.browser.fromPixels(digit, 1);
+    console.log(this.img);
+    console.log(" ");
     img= tf.image.resizeBilinear (img, [28,28]);
     img = img.reshape([-1, 28, 28, 1]);
     img = tf.cast(this.img, 'float32');
@@ -84,11 +86,23 @@ var myChart = new Chart(ctx, {
 function tst(){
     console.log(model);
 }
+function preview_image(event) {
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+
+}
 </script>
 
 </head>
 <body>
-            <img id="output_image" src="images\image.png" width=400px height='400 px' />
+            <input type="file" accept="image/*" onchange="preview_image(event)"style="margin-top: 3%;">
+            <br>
+            <img id="output_image" width=400px height='400 px' />
             <br>
             <p id="res">
             

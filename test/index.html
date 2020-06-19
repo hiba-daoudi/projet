@@ -1,64 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>crop image</title> 
-           <link rel="stylesheet" href="css/imgareaselect.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crop image</title>
+    <link rel="stylesheet" href="css/imgareaselect.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jquery.imgareaselect.js"></script>
-    
-    </head>
+
+</head>
+
 <body>
     <form action="crop.php" method="post" enctype="multipart/form-data">
-        Upload Image: <input type="file" name="image" id="image" />
+        Upload Image: <input type="hidden" name="image" value="" />
         <input type="hidden" name="x1" value="" />
         <input type="hidden" name="y1" value="" />
         <input type="hidden" name="w" value="" />
         <input type="hidden" name="h" value="" /><br><br>
+        <p><img id="previewimage" src="..\images\image.png" width="400px" name='image' /></p>
         <input type="submit" name="submit" value="Submit" />
     </form>
-     
-    <p><img id="previewimage" style="display:none;" width="400px" /></p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/jquery.imgareaselect.js"></script>
-<script>
-    jQuery(function($) {
- 
-        var p = $("#previewimage");
-        $("body").on("change", "#image", function(){
- 
-            var imageReader = new FileReader();
-            imageReader.readAsDataURL(document.getElementById("image").files[0]);
-     
-            imageReader.onload = function (oFREvent) {
-                p.attr('src', oFREvent.target.result).fadeIn();
-            };
-        });
- 
-        $('#previewimage').imgAreaSelect({
-            onSelectEnd: function (img, selection) {
-                [imgWidth,imgHeight]=getsize();
-                newH = (imgHeight*400)/imgWidth;
-                newW=400;
-                s=selection.x1;
-                r=selection.y1;
-                $('input[name="x1"]').val(parseInt((s*imgHeight)/newH));
-                $('input[name="y1"]').val(parseInt((r*imgWidth)/newW));
-                $('input[name="w"]').val(parseInt((selection.width*imgWidth)/newW));
-                $('input[name="h"]').val(parseInt((selection.height*imgHeight)/newH));    
 
-            }
-        });
-    });
-var getsize = function(){
-    tmp_img=new Image();
- tmp_img.src=document.getElementById('previewimage').getAttribute('src');
-real_width = tmp_img.width
-real_height = tmp_img.height
-return [real_width,real_height];
-};
+    <!-- <p><img id="previewimage" style="display:none;" width="400px" /></p> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery.imgareaselect.js"></script>
+    <script>
+        jQuery(function ($) {
 
-</script>
+            $('#previewimage').imgAreaSelect({
+                onSelectEnd: function (img, selection) {
+                    [imgWidth, imgHeight] = getsize();
+                    newH = (imgHeight * 400) / imgWidth;
+                    newW = 400;
+                    s = selection.x1;
+                    r = selection.y1;
+                    $('input[name="x1"]').val(parseInt((s * imgHeight) / newH));
+                    $('input[name="y1"]').val(parseInt((r * imgWidth) / newW));
+                    $('input[name="w"]').val(parseInt((selection.width * imgWidth) / newW));
+                    $('input[name="h"]').val(parseInt((selection.height * imgHeight) / newH));
+                    var base64 = getBase64Image(document.getElementById("previewimage"));
+                    // var file = dataURLtoFile(base64, 'image.png');
+                    // console.log(file);
+                     $('input[name="image"]').val(base64);
+                }
+            });
+        });
+        var getsize = function () {
+            tmp_img = new Image();
+            tmp_img.src = document.getElementById('previewimage').getAttribute('src');
+            real_width = tmp_img.width
+            real_height = tmp_img.height
+            return [real_width, real_height];
+        };
+        function getBase64Image(img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            var dataURL = canvas.toDataURL("image/png");
+            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+        }
+
+        // function dataURLtoFile(dataurl, filename) {
+
+        //     var arr = dataurl.split(','),
+        //         mime = arr[0].match(/:(.*?);/)[1],
+        //         bstr = atob(arr[1]),
+        //         n = bstr.length,
+        //         u8arr = new Uint8Array(n);
+
+        //     while (n--) {
+        //         u8arr[n] = bstr.charCodeAt(n);
+        //     }
+
+        //     return new File([u8arr], filename, { type: mime });
+        // }
+
+        // //Usage example:
+        // var file = dataURLtoFile('data:text/plain;base64,aGVsbG8gd29ybGQ=', 'hello.txt');
+        // console.log(file);
+    </script>
 </body>
+
 </html>

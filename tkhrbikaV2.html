@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+    <title>TkherbikaV2</title>
+    <script>
+        let img;
+        function preload() {
+            img = loadImage('test3.png');
+        }
+        function setup() {
+            var width = img.width;
+            var height = img.height;
+            createCanvas(width, height);
+            image(img, 0, 0);
+            var tf = 0;
+            var index = [];
+            var x = 0;
+            while (x < width) {
+                for (var y = 0; y < height; y = y + 1) {
+                    var couleur = get(x, y);
+                    var R = red(couleur);
+                    if (R == 0 ) {
+                        tf = 1;
+                    }
+                }
+
+                if (tf == 1) {
+                    index.push(x);
+                    while (x < width && tf == 1) {
+                        tf = 0;
+                        for (var y = 0; y < height; y = y + 1) {
+                            var couleur = get(x, y);   // obtenir la couleur du pixel (x,y)
+
+                            var R = red(couleur); 
+                            if (R == 0 ) {
+                                tf = 1;
+                            }
+                        }
+                        x = x + 1;
+                    }
+                    if (tf == 0) {
+                        index.push(x - 1);
+                    }
+                } else {
+                    x = x + 1;
+                }
+            }
+            console.log(index);
+            img.loadPixels();
+            var i = 1;
+            for (var x = index[0]; x <= index[1]; x = x + 1) {
+                for (var y = 0; y < height; y = y + 1) {
+                    var ind = (x + y * width) * 4;
+                    var b = (index[1] + i + y * width) * 4;
+                    img.pixels[b + i + 0] = img.pixels[ind + 0];
+                    img.pixels[b + i + 1] = img.pixels[ind + 1];
+                    img.pixels[b + i + 2] = img.pixels[ind + 2];
+                }
+                i = i + 1;
+            }
+            img.updatePixels();   
+            image(img, 0, 0);
+        }
+
+
+
+// var img;
+
+// function preload() {
+//   img = loadImage("photo.jpg");
+// }
+
+// function setup() {
+//   var largeur = img.width;   // largeur de l'image
+//   var hauteur = img.height;  // hauteur de l'image
+//   createCanvas(largeur, hauteur); // créer un canvas de la taille de l'image
+//   image(img, 0, 0);   // afficher l'image
+
+//   for (var x = 0; x < largeur; x = x + 1) {      // deux boucles pour parcourir l'ensemble
+//     for (var y = 0; y < hauteur; y = y + 1) {   // des pixels constituant l'image
+
+//       var couleur = get(x, y);   // obtenir la couleur du pixel (x,y)
+
+//       var R = red(couleur);     // R prend la valeur du rouge
+//       var V = green(couleur);   // V prend la valeur du vert
+//       var B = blue(couleur);    // B prend la valeur du bleu
+
+//       var gris = (R + V + B) / 3;   // calcul de la valeur du gris
+
+//       set(x, y, gris);   // definir la nouvelle couleur du pixel (x,y)
+//     }
+//   }
+//   updatePixels();   // mettre à jour les pixels modifiés
+// }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
