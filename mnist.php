@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="mnist2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
    <style>
        img{
@@ -30,8 +30,13 @@ async function loadModelMnist() {
     document.getElementById("charge").style.display='none';
     document.getElementById("charge").style.marginleft='-3%';
 }
- async function pr(){
-    const digit = document.getElementById("output_image");   
+let digit;
+var index = [];
+ async function pr(){  
+    for (var y = 1; y <= <?php echo $_GET['v']; ?>; y = y + 1) {
+        var digit =  document.getElementById('image');
+        digit.src = 'images/image'+y+'.png';
+        document.getElementById("res").innerHTML = 'images/image'+y+'.png';
     img = tf.browser.fromPixels(digit, 1);
     img= tf.image.resizeBilinear (img, [28,28]);
     img = img.reshape([-1, 28, 28, 1]);
@@ -40,46 +45,52 @@ async function loadModelMnist() {
     const pred = await tf.tidy(() => {
     const output = model.predict(img);
     predictions = Array.from(output.dataSync());
-    console.log(predictions);});
-    var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['0', '1', '2', '3', '4', '5','6','7','8','9'],
-        datasets: [{
-            label: '# of Votes',
-            data: predictions,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 0.5
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
+    console.log(predictions);
+    // console.log(predictions.max());
+    // m=predictions.indexOf(Math.max(predictions));
+    // index.push(m);
 });
+console.log(index);
+}
+//     var ctx = document.getElementById('myChart').getContext('2d');
+// var myChart = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//         labels: ['0', '1', '2', '3', '4', '5','6','7','8','9'],
+//         datasets: [{
+//             label: '# of Votes',
+//             data: predictions,
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 0.5
+//         }]
+//     },
+//     options: {
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }]
+//         }
+//     }
+// });
 }
 function tst(){
     console.log(model);
@@ -89,6 +100,8 @@ function tst(){
 </head>
 <body>
             <img id="output_image" src="images\image.png" width=400px height='400 px' />
+            <img id="image"  width=400px height='400 px' style="display:none;" />
+
             <br>
             <p id="res">
             

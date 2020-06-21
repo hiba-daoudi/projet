@@ -1,7 +1,4 @@
 <?php
-// include composer autoload
-require 'test/vendor/autoload.php';
-
      
     if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
  
@@ -9,16 +6,42 @@ require 'test/vendor/autoload.php';
             mkdir('images', 0755);
         }
  
-        $filename ='image.png';
-        $filepath = 'images/'. $filename;
+        $filename =$_FILES['image']['name'];
+        $p = explode(".", $filename); 
+        $filepath = 'images/image.'.$p[count($p)-1];
         move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
-         
+        switch ($p[count($p)-1]) {
+            case 'png':
+            case 'x-png':
+                $core = imagecreatefrompng($filepath);
+                break;
+
+            case 'jpg':
+            case 'jpeg':
+            case 'pjpeg':
+                $core = imagecreatefromjpeg($filepath);
+                if (!$core) {
+                    $core= imagecreatefromstring(file_get_contents($filepath));
+                }
+                break;
+
+            case 'gif':
+                $core = imagecreatefromgif($filepath);
+                break;
+
+            case 'bmp':
+                
+                $core = imagecreatefrombmp($filepath);
+                break;
+            }
+            imagepng($core, 'images/image.png');
+            imagedestroy($core);
         
     }
     if (isset($_POST['oui'])) {
         header('location:test/index.html');
     } else if (isset($_POST['non'])) {
-        header('location:mnist.php');
+        header('location:calc.html');
     } 
     
 ?> 

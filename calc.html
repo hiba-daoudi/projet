@@ -16,35 +16,10 @@
         var img;
         let a = [];
         function preload() {
-            img = loadImage("chaine2.png");
+            img = loadImage("images/image.png");
         }
         function setup() {
             createCanvas(800, 600);
-
-        }
-        function draw() {
-            image(img, 0, 0);
-
-        }
-        let b = [];
-        function tobin(i,j) {
-            var couleur = img.get(i, j);   // obtenir la couleur du pixel (x,y)
-
-            var R = red(couleur);     // R prend la valeur du rouge
-            var V = green(couleur);   // V prend la valeur du vert
-            var B = blue(couleur);    // B prend la valeur du bleu
-
-            var gris = (R + V + B) / 3;   // calcul de la valeur du gris
-            if (gris < 128) {
-                gris = 0;
-            }
-            else {
-                gris = 255;
-            }
-            return gris;
-        }
-        function calcul() {
-
             var k = 0;
             var Width = img.width;
             var Height = img.height;
@@ -52,7 +27,7 @@
             a[0] = false;
             for (i = 0; i < Width; i++) {
                 for (j = 0; j < Height; j++) {
-                    gris=tobin(i,j);
+                    gris = tobin(i, j);
                     if (gris == 0) {
                         a[i] = true
                         break;
@@ -71,11 +46,33 @@
                 if (a[Width - 1] == true) {
                     b[k] = Width - 1;
                 }
-            }
+                
 
+            }
+            window.location.href = "cro.php?var1=" + b;
         }
+
+        let b = [];
+        function tobin(i, j) {
+            var couleur = img.get(i, j);   // obtenir la couleur du pixel (x,y)
+
+            var R = red(couleur);     // R prend la valeur du rouge
+            var V = green(couleur);   // V prend la valeur du vert
+            var B = blue(couleur);    // B prend la valeur du bleu
+
+            var gris = (R + V + B) / 3;   // calcul de la valeur du gris
+            if (gris < 128) {
+                gris = 0;
+            }
+            else {
+                gris = 255;
+            }
+            return gris;
+        }
+
+
+
     </Script>
-    <button onclick="calcul();">calcul</button>
 </body>
 
 </html>
