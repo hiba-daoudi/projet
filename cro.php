@@ -16,5 +16,5 @@ for($i = 0; $i < count($p); $i = $i + 2) {
 }
 imagedestroy($im);
 $n = $n - 1 ;
- header('location:mnist.php?v='.$n);
+ header('location:b3.php?v='.$n);
 ?>

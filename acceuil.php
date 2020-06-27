@@ -11,27 +11,14 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   
-   
+   <link rel="stylesheet" href="acceuil.css">
     <title>Document</title>
-    <style>
-      img{
-        vertical-align: middle;
-        margin-top:2% ;
-      }
-      body{
-          text-align: center;  
-      }
-      input[type="file"]{
-        margin-top:3% ;
-      }
-      #Traitement{
-        margin-top:1% ;
-        margin-bottom:3% ;
-      }
-      </style>
+    
 </head>
 <body>
+<!-- <video autoplay muted loop id="myVideo">
+  <source src="VI.mp4" type="video/mp4">
+</video> -->
     <form action="enre.php" method='post' enctype="multipart/form-data">
     <input type="file" name="image" id="image" />
     <p><img id="previewimage" style="display:none;" width="400px" /></p>   
