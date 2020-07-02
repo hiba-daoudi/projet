@@ -1,15 +1,15 @@
 <?php
      
-    if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+    if(isset($_FILES['input-file-preview']['name']) && !empty($_FILES['input-file-preview']['name'])) {
  
         if(!file_exists('images')) {
             mkdir('images', 0755);
         }
  
-        $filename =$_FILES['image']['name'];
+        $filename =$_FILES['input-file-preview']['name'];
         $p = explode(".", $filename); 
         $filepath = 'images/image.'.$p[count($p)-1];
-        move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
+        move_uploaded_file($_FILES['input-file-preview']['tmp_name'], $filepath);
         switch ($p[count($p)-1]) {
             case 'png':
             case 'x-png':
@@ -37,11 +37,11 @@
             imagepng($core, 'images/image.png');
             imagedestroy($core);
         
-    }
     if (isset($_POST['oui'])) {
         header('location:test/index.html');
     } else if (isset($_POST['non'])) {
         header('location:calc.html');
     } 
-    
+
+}
 ?> 

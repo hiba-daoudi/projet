@@ -12,6 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="mnist2.css">
+    <link rel="stylesheet" href="blossom.css">
     <style>
         img {
             vertical-align: middle;
@@ -21,22 +23,16 @@
         body {
             text-align: center;
         }
+        .c{
+    background: rgb(18,60,105);;
+    color: rgb(238,226,220);
+  }
     </style>
-
-
-</head>
-
-<body id='i' >
-    <script>
-        let predictions
+<script>
+     let predictions
         let model
-        const v = <?php echo $_GET['v']; ?>;
-
-        async function loadModelMnist() {
+    async function loadModelMnist() {
             model = await tf.loadLayersModel('models/model.json');
-            
-            document.getElementById("charge").style.display = 'none';
-            document.getElementById("charge").style.marginleft = '-3%';
             const  myImage = new Image(400, 400);
             for (var y = 1; y <= v; y = y + 1) {
                 myImage.src = 'images/image' + y + '.png';
@@ -55,6 +51,16 @@
                 alert('le modele est chargé avec succès');
 
         }
+    </script>
+
+</head>
+
+<body id='i' onload = 'loadModelMnist()'>
+    <script>
+       
+        const v = <?php echo $_GET['v']; ?>;
+
+        
 
         async function pr() {
             var index = [];
@@ -90,18 +96,20 @@
 return b ;
 }
     </script>
-
-    <img id="output_image" src="images\image.png" width='400px' height='400 px' />
+<!-- <header class="b3"> hiba </header> -->
+    <img id="output_image" src="images\image.png" width='300px' height='300 px' />
     
     <br>
     <p id="res">
         <center>
-            <button class="btn btn-info" id='charge' onclick="loadModelMnist()">Charger Modèle</button>
-            <a href="#myChart"><button class="btn btn-info" id='charge2' onclick="pr()">Predire</button></a>
+            
+            <a href="#myChart"><button class="btn c" id='charge2' onclick="pr()">Predire</button></a>
             <center>
     </p>
 
     <div id='idnameofdiv' style="display: none;"></div>
-
+    <!-- <div class="footer">
+        Copyright © 2020
+    </div> -->
 
 </body>
