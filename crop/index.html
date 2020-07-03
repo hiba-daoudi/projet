@@ -8,17 +8,25 @@
     <link rel="stylesheet" href="css/imgareaselect.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jquery.imgareaselect.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <link rel="stylesheet" href="../CSS/index.css">
+    <style>
+      
+    </style>
 
 </head>
 
 <body>
+    <!-- <header class="b3"> hiba </header> -->
+
     <form action="crop.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="x1" value="" />
         <input type="hidden" name="y1" value="" />
         <input type="hidden" name="w" value="" />
         <input type="hidden" name="h" value="" /><br><br>
         <p><img id="previewimage" src="..\images\image.png" width="400px" name='image' /></p>
-        <input type="submit" name="submit" value="Submit" />
+        <input type="submit" name="submit" value="Submit" id="r" class="btn" />
     </form>
 
     <!-- <p><img id="previewimage" style="display:none;" width="400px" /></p> -->
@@ -38,7 +46,7 @@
                     $('input[name="y1"]').val(parseInt((r * imgWidth) / newW));
                     $('input[name="w"]').val(parseInt((selection.width * imgWidth) / newW));
                     $('input[name="h"]').val(parseInt((selection.height * imgHeight) / newH));
-                    
+
                 }
             });
         });
@@ -49,9 +57,13 @@
             real_height = tmp_img.height
             return [real_width, real_height];
         };
-        
+
 
     </script>
+    <div class="footer">
+        
+        <strong> Copyright © 2020</strong>
+        </div>
 </body>
 
 </html>

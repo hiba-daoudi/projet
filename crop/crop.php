@@ -13,6 +13,6 @@ if(isset($_POST['submit'])) {
         
         
     }
-    header('location:../calc.html');
+    header('location:../acceuil/calc.html');
 
 ?>
