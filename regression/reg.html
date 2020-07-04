@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression</title>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1"> </script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+    <script src='reg.js' type="text/javascript"></script>
+</head>
+<body>
+    <div style="color: red; text-align: center; font-size: 40px; font-weight: bold; font-style: normal;">
+            Regression Linéaire
+        </div>
+    <p style="font-size: larger; font-style: normal; font-weight: bold;">Ajouter un point : Choisir un x et y</p>
+    <input type="number"  name="" id="x" >
+    <input type="number" name="" id="y" >
+    <button onclick="ajouter()">Ajouter</button>
+    <button  onclick="regression()">S'entraîner</button>
+    <br>
+    <br>
+    <div id="nv" ></div>   
+
+
+</body>
+</html>

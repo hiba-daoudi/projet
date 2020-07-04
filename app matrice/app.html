@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <p id='titre'>Traitement Matriciel </p>
+    <div id='m'>
+        <div id='m1'>
+            <label style="font-size: 24px;margin-left: -3%; font-weight: bold;">Taille de la premiere matrice</label><br>
+            <label  style="margin-right:3.5% ;">Nombre  de  lignes </label>
+            <input  type="number" name="ligne" id="ligne1" style="margin-left: 4.44%;"> <br>
+            <label style="margin-right:2% ;">Nombre de colonnes</label>
+            <input type="number" name="colonne" id="colonne1"style="margin-left: 2%;"><br>
+        </div>
+        <div id='m2'>  
+            <label style="font-size: 24px;margin-left: -3%; font-weight: bold;">Taille de la deuxiemme matrice</label><br>
+            <label style="margin-right:3% ;">Nombre  de  lignes </label>
+            <input type="number" name="ligne" id="ligne2"style="margin-left: 4.69%;"> <br>
+            <label style="margin-right:2% ;">Nombre de colonnes</label>
+            <input type="number" name="colonne" id="colonne2" style="margin-left: 2%;"><br>
+        </div>
+        </div>
+    <div id='env'>
+        <input type="submit" name="inserer" id="myButton" value="inserer"><br>
+    </div>
+    <br /><br />
+	<div id="mat">
+           <div id="mat1"></div>
+		   <div id="mat2"></div>
+    </div>
+        <div id="botona"></div>
+        <p></p>
+        
+        <div id ="resu"></div>
+        <table id="resultat">
+        </table>
+    
+        <script type="text/javascript" src="app.js">
+        </script>
+</body>
+</html>
