@@ -1,0 +1,158 @@
+#styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+#styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+#styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+.js .input-file-container {
+    position: relative;
+    width: 225px;
+  }
+  .js .input-file-trigger {
+    display: block;
+    padding: 14px 45px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+  }
+  .js .input-file {
+    position: absolute;
+    top: 0; left: 0;
+    width: 225px;
+    padding: 14px 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+   
+  /* quelques styles d'interactions */
+  .js .input-file:hover + .input-file-trigger,
+  .js .input-file:focus + .input-file-trigger,
+  .js .input-file-trigger:hover,
+  .js .input-file-trigger:focus {
+    background: #34495E;
+    color: #39D2B4;
+  }
+   
+  /* styles du retour visuel */
+  .file-return {
+    margin: 0;
+  }
+  .file-return:not(:empty) {
+    margin: 1em 0;
+  }
+  .js .file-return {
+    font-style: italic;
+    font-size: .9em;
+    font-weight: bold;
+  }
+  /* on complète l'information d'un contenu textuel
+     uniquement lorsque le paragraphe n'est pas vide */
+  .js .file-return:not(:empty):before {
+    content: "Selected file: ";
+    font-style: normal;
+    font-weight: normal;
+  }
+  img{
+    vertical-align: middle;
+    margin-top:7% ;
+  }
+  body{
+      text-align: center;  
+  }
+  #myChart {
+    width: 50% !important;
+    min-height: 40%!important;
+  }
+<<<<<<< HEAD:mnist2.css
+  .c{
+    background-color: rgb(67, 23,38);
+  }
+=======
+  
+  .footer {
+    bottom: -0.4%;
+     width:100%;
+     position: absolute;
+     display: flex;
+     font-size: initial;
+     justify-content: center !important;
+     padding: 0.5%;
+     
+     text-align: center; 
+     color:  rgb(238,226,220);
+     z-index: 2;
+ }
+
+body {
+    text-align: center;
+    background-image: url("../background/WEB2.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  text-align: center; 
+          display: block;
+}
+.c{
+  background: rgb(172, 59, 97);
+color: rgb(238,226,220);
+font-size: medium;
+    color: rgb(238, 226, 220);
+    padding-left: 2%;
+    padding-right: 2%;
+    letter-spacing: 0.5px;
+    border: 0px !important;
+    cursor: pointer;
+    border-radius: 100px;
+    height: 33px;
+}
+@media screen and (max-width:600px){
+
+  body {
+    text-align: center;
+    background-image: url("../background/MOBILE2.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  text-align: center; 
+          display: block;
+}
+img{
+  width: 30%;
+  height: 30%;
+}
+}
+>>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:CSS/mnist2.css

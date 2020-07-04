@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+
+</head>
+
+
+<body>
+    <script>
+        var img;
+        let a = [];
+        function preload() {
+            img = loadImage("../images/image.png");
+        }
+        function setup() {
+            createCanvas(800, 600);
+            var k = 0;
+            var Width = img.width;
+            var Height = img.height;
+            let a = [];
+            a[0] = false;
+            for (i = 0; i < Width; i++) {
+                for (j = 0; j < Height; j++) {
+                    gris = tobin(i, j);
+                    if (gris == 0) {
+                        a[i] = true
+                        break;
+                    }
+                    a[i] = false;
+                }
+
+                if (a[0] == true && i == 0) {
+                    b[k] = 0;
+                    k++;
+                }
+                if (a[i] != a[i - 1] && i != 0) {
+                    b[k] = i;
+                    k++;
+                }
+                if (a[Width - 1] == true) {
+                    b[k] = Width - 1;
+                }
+                
+
+            }
+            window.location.href = "../PHP/cro.php?var1=" + b;
+        }
+
+        let b = [];
+        function tobin(i, j) {
+            var couleur = img.get(i, j);   // obtenir la couleur du pixel (x,y)
+
+            var R = red(couleur);     // R prend la valeur du rouge
+            var V = green(couleur);   // V prend la valeur du vert
+            var B = blue(couleur);    // B prend la valeur du bleu
+
+            var gris = (R + V + B) / 3;   // calcul de la valeur du gris
+            if (gris < 128) {
+                gris = 0;
+            }
+            else {
+                gris = 255;
+            }
+            return gris;
+        }
+
+
+
+    </Script>
+</body>
+
+</html>

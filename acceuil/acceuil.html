@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='blossom.js' type="text/javascript"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../CSS/acceuil.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="des">
+        <p>
+            Bienvenue ! Veuillez selectionner l'image contenant des chiffres sous l'extension <strong>
+                jpg </strong>, <strong>jpeg</strong> ou <strong>gif</strong>, et l'application reconnaîtra le chiffre ou
+            le nombre que cette image contient qu'il soit imprimé ou manuscrit.
+        </p>
+    </div>
+    <div class="bs">
+        <form action="../PHP/enre.php" method='post' enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 b">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                <!-- image-preview-filename input [CUT FROM HERE]-->
+                                <div class="input-group image-preview">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                                    <!-- don't give a name === doesn't send on POST/GET -->
+                                    <span class="input-group-btn">
+                                        <!-- image-preview-clear button -->
+                                        <button type="button" class="btn btn-default image-preview-clear c"
+                                            style="display:none;">
+                                            <span class="glyphicon glyphicon-remove"></span> Clear
+                                        </button>
+                                        <!-- image-preview-input -->
+                                        <div class="btn btn-default image-preview-input">
+                                            <span class="glyphicon glyphicon-folder-open"></span>
+                                            <span class="image-preview-input-title c">Browse</span>
+                                            <input type="file" accept="image/png, image/jpeg, image/gif"
+                                                name="input-file-preview" capture /> <!-- rename it -->
+                                        </div>
+                                    </span>
+                                </div><!-- /input-group image-preview [TO HERE]-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Traitement</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Vous voulez rogner cette image ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-secondary" name="non">Non</button>
+                                    <button type="submit" class="btn btn-primary" name="oui">Oui</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <center><button style="display:none;" class="btn " data-toggle="modal" id="Traitement" data-target="#exampleModal">
+            Traitement
+        </button> </center>
+    </div>
+    <div class="footer">
+        <strong> Copyright © 2020</strong>
+    </div>
+
+
+</body>
+
+</html>
