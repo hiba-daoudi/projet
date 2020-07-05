@@ -208,6 +208,6 @@ img{
     margin-top: 4%;
     border-radius: 100px;
     height: 30px;
-    
+    display: block;
 }
 }

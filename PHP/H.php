@@ -75,7 +75,7 @@
             index = index.join('');
             console.log(index);
             document.getElementById("g").innerHTML='le numéro écrit est : ' + index ;
-            document.getElementById("m").style.display="block";
+            
         }
         function max(n){
     var b = 0;
