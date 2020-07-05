@@ -13,24 +13,6 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
     
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
-<<<<<<< HEAD:H.php
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <link rel="stylesheet" href="mnist2.css">
-    <link rel="stylesheet" href="blossom.css">
-    <style>
-        img {
-            vertical-align: middle;
-            margin-top: 2%;
-        }
-
-        body {
-            text-align: center;
-        }
-        .c{
-    background: rgb(18,60,105);;
-    color: rgb(238,226,220);
-  }
-=======
     <link rel="stylesheet" href="../CSS/H.css">
     <!-- <link rel="stylesheet" href="../CSS/blossom.css"> -->
     <style>
@@ -55,17 +37,12 @@
     -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
->>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:PHP/H.php
     </style>
 <script>
      let predictions
         let model
     async function loadModelMnist() {
-<<<<<<< HEAD:H.php
-            model = await tf.loadLayersModel('models/model.json');
-=======
             model = await tf.loadLayersModel('../models/model.json');
->>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:PHP/H.php
             const  myImage = new Image(400, 400);
             for (var y = 1; y <= v; y = y + 1) {
                 myImage.src = '../images/image' + y + '.png';
@@ -133,29 +110,15 @@ return b ;
 }
     </script>
 <!-- <header class="b3"> hiba </header> -->
-<<<<<<< HEAD:H.php
-    <img id="output_image" src="images\image.png" width='300px' height='300 px' />
-=======
 <div id="ex1" class="modal"> 
     <p id = "g"></p>
 </div>
     <img id="output_image" src="..\images\image.png" width='300px' height='300 px' />
->>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:PHP/H.php
     
     <br>
     <p id="res">
         <center>
             
-<<<<<<< HEAD:H.php
-            <a href="#myChart"><button class="btn c" id='charge2' onclick="pr()">Predire</button></a>
-            <center>
-    </p>
-
-    <div id='idnameofdiv' style="display: none;"></div>
-    <!-- <div class="footer">
-        Copyright © 2020
-    </div> -->
-=======
             <a href="#ex1" rel="modal:open" ><button class="btn c" id='charge2' style= "display: none;" onclick="pr()">Predire</button></a>
             <center>
     </p>
@@ -163,6 +126,5 @@ return b ;
         
     <strong> Copyright © 2020</strong>
     </div>
->>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:PHP/H.php
 
 </body>

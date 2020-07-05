@@ -8,11 +8,7 @@
  
         $filename =$_FILES['input-file-preview']['name'];
         $p = explode(".", $filename); 
-<<<<<<< HEAD:enre.php
-        $filepath = 'images/image.'.$p[count($p)-1];
-=======
         $filepath = '../images/image.'.$p[count($p)-1];
->>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:PHP/enre.php
         move_uploaded_file($_FILES['input-file-preview']['tmp_name'], $filepath);
         switch ($p[count($p)-1]) {
             case 'png':

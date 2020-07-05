@@ -85,11 +85,6 @@
     width: 50% !important;
     min-height: 40%!important;
   }
-<<<<<<< HEAD:mnist2.css
-  .c{
-    background-color: rgb(67, 23,38);
-  }
-=======
   
   .footer {
     bottom: -0.4%;
@@ -155,4 +150,3 @@ img{
   height: 30%;
 }
 }
->>>>>>> 39bc7636b7b446e50285b729f815fdeaeacbd003:CSS/mnist2.css
