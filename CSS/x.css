@@ -145,7 +145,7 @@ font-size: medium;
     border-radius: 100px;
     height: 30px;
 }
-.m{
+#m{
   display: none;
 }
 
@@ -199,14 +199,15 @@ img{
 .e{
   display: none;
 }
-.m{ background: rgb(172, 59, 97);
+#m{ background: rgb(172, 59, 97);
   color: rgb(238,226,220);
     letter-spacing: 0.5px;
     font-size: medium;
     border: 0px !important;
     cursor: pointer;
-    
+    margin-top: 4%;
     border-radius: 100px;
     height: 30px;
+    
 }
 }

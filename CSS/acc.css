@@ -69,14 +69,14 @@ body {
   
 .des{
     font-size: large;
-    padding-left: 13%;
-    padding-right: 13%;
+    padding-left: 17%;
+    padding-right: 17%;
     padding-top: 2%;
     padding-bottom: 2%;
-    margin-top: 7%;
+    margin-top:4.5%;
 }
 .footer {
-   top: 80.3%;
+   top: 85.2%;
     width:100%;
     position: absolute;
     display: flex;
@@ -124,6 +124,9 @@ body {
     
     
 }
+.j{
+    text-align: justify;
+}
 @media screen and (max-width:600px){
     
       body{
@@ -141,7 +144,7 @@ body {
               display: block;
       }
       .footer {
-        top: 92%;
+        top: 94.5%;
          width:100%;
          position: absolute;
          display: flex;
@@ -155,11 +158,11 @@ body {
      }
      .des{
         font-size: medium;
-        padding-left: 13%;
-        padding-right: 13%;
+        padding-left: 10%;
+        padding-right: 10%;
         padding-top: 13%;
         padding-bottom: 2%;
-        margin-top: 7%;
+        margin-top: 3%;
     }
     .bs{
         z-index: 2;
@@ -186,5 +189,10 @@ body {
         border: 0px !important;
         cursor: pointer;
         border-radius: 100px;
+    }
+    .j{
+        margin-top: -2.5%;
+        margin-bottom: -5%;
+        text-align: justify;
     }
 }
