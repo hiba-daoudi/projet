@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/imgareaselect.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/jquery.imgareaselect.js"></script>
-<link rel="stylesheet" href="../CSS/index2.css">
+<link rel="stylesheet" href="../CSS/index.css">
     <title>Document</title>
     <style>
         
@@ -18,7 +18,7 @@
         <input type="hidden" name="y1" value="" />
         <input type="hidden" name="w" value="" />
         <input type="hidden" name="h" value="" /><br><br>
-        <p><img id="previewimage" src="..\images\image.png" width="300px" name='image' /></p>
+        <p><img id="previewimage" src="..\images\image.png" width="400px" name='image' /></p>
         <input type="submit" name="submit" value="Submit" id="r" class="btn" />
     </form>
      
@@ -28,8 +28,8 @@
             $('#previewimage').imgAreaSelect({
                 onSelectEnd: function (img, selection) {
                     [imgWidth, imgHeight] = getsize();
-                    newH = (imgHeight * 300) / imgWidth;
-                    newW = 300;
+                    newH = (imgHeight * 400) / imgWidth;
+                    newW = 400;
                     s = selection.x1;
                     r = selection.y1;
                     $('input[name="x1"]').val(parseInt((s * imgHeight) / newH));

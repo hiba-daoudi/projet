@@ -46,7 +46,12 @@ body {
 }
 @media screen and (max-width:600px){
     #previewimage{
-        margin-top: 4%;
+        margin-top: 9%;
     }
+    #r{
+        margin-top: 3%;
+    }
+    .footer {
+        bottom: 1.6%;}
 }
 

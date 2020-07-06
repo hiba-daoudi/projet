@@ -10,33 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
     
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
-    <link rel="stylesheet" href="../CSS/H.css">
-    <!-- <link rel="stylesheet" href="../CSS/blossom.css"> -->
+    <link rel="stylesheet" href="../CSS/x.css">
     <style>
  
- .modal a.close-modal[class*="icon-"] {
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    color: #fff;
-    line-height: 1.25;
-    text-align: center;
-    text-decoration: none;
-    text-indent: 0;
-    background: #900;
-    border: 2px solid #fff;
-    -webkit-border-radius: 26px;
-    -moz-border-radius: 26px;
-    -o-border-radius: 26px;
-    -ms-border-radius: 26px;
-    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-}
     </style>
 <script>
      let predictions
@@ -96,7 +74,8 @@
             console.log(index);
             index = index.join('');
             console.log(index);
-            document.getElementById("g").innerHTML='le numero affiche est : ' + index;
+            document.getElementById("g").innerHTML='le numéro écrit est : ' + index ;
+            
         }
         function max(n){
     var b = 0;
@@ -109,7 +88,8 @@
 return b ;
 }
     </script>
-<!-- <header class="b3"> hiba </header> -->
+<div class = "b3"> 
+<a href="../acceuil/acceuil.html" > <button class ="e"> Accueil </button></a> </div>
 <div id="ex1" class="modal"> 
     <p id = "g"></p>
 </div>
@@ -120,7 +100,9 @@ return b ;
         <center>
             
             <a href="#ex1" rel="modal:open" ><button class="btn c" id='charge2' style= "display: none;" onclick="pr()">Predire</button></a>
+            <a href="../acceuil/acceuil.html" > <button id ="m"> Accueil </button></a> 
             <center>
+            
     </p>
     <div class="footer">
         
